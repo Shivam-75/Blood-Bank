@@ -161,7 +161,7 @@ export const refreshToken = async (req, res) => {
                 maxAge: 15 * 60 * 1000
             })
             .cookie("RefreshToken", RefreshToken, option)
-            .json({ message: "Successfully refresh the token !!", data: { AccessToken, RefreshToken }, success: true });
+            .json({ message: "Successfully refresh the tokens !!", data: { AccessToken, RefreshToken }, success: true });
 
     } catch (err) {
         return res.status(400).json({ message: "Invalid Refresh Token !!", success: false, err: err.message });

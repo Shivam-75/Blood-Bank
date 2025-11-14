@@ -86,26 +86,21 @@ export const AuthProvider = ({ children }) => {
       if (response.ok) {
         console.log("User login data:", data);
         return;
-      } else {
-        if (data.err === "jwt expired") {
-          console.log("JWT expired, trying refresh...");
+      } else if (data.err === "jwt expired") {
+        console.log("JWT expired, trying refresh...");
 
-          const res = await RefreshToken();
-          const refreshData = await res.json();
+        const res = await RefreshToken();
+        const refreshData = await res.json();
 
-          if (res.ok) {
-            console.log("Refresh success", refreshData);
-            setTokenLocalStorage(true);
-            userDataFached();
-          } else {
-            console.log("Refresh failed:", refreshData);
-            removerToken();
-          }
+        if (res.ok) {
+          console.log("Refresh success", refreshData);
+          setTokenLocalStorage(true);
+          userDataFached();
+        } else {
+          console.log("Refresh failed:", refreshData);
+          removerToken();
         }
-      }
-
-      console.log("Login shivam failed:", data);
-      if (data.success === false) {
+      } else {
         removerToken();
         console.log("shivam", data.message);
       }
