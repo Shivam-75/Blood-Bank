@@ -107,7 +107,7 @@ export const AuthProvider = ({ children }) => {
     } catch (err) {
       throw new Error("Login Data Error: " + err);
     }
-  }, [isLogin]);
+  }, []);
 
   useEffect(() => {
     userDataFached();
