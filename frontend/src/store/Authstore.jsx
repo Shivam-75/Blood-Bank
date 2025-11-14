@@ -103,8 +103,6 @@ export const AuthProvider = ({ children }) => {
           console.log("Refresh failed:", refreshData);
           removerToken();
         }
-
-        return;
       }
 
       // Other errors
