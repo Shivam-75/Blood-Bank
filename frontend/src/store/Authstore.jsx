@@ -51,13 +51,15 @@ export const AuthProvider = ({ children }) => {
     transition: Bounce,
   };
 
-  const [loginToken, setToekn] = useState(localStorage.getItem("isLogin"));
+  const [loginToken, setToekn] = useState(
+    localStorage.getItem("isLogin") === "true"
+  );
 
   const isLogin = !!loginToken;
 
   const setTokenLocalStorage = async (token = true) => {
+    localStorage.setItem("isLogin", token ? "true" : "false");
     setToekn(true);
-    localStorage.setItem("isLogin", token);
   };
   const removerToken = () => {
     localStorage.removeItem("isLogin");
