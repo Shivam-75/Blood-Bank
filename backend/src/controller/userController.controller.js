@@ -125,14 +125,14 @@ export const userProfile = async (req, res) => {
 }
 
 export const refreshToken = async (req, res) => {
-    const incomingRefreshToken = req.cookies?.RefreshToken;
+    const { RefreshToken } = req.cookies;
 
-    if (!incomingRefreshToken) {
+    if (!RefreshToken) {
         return res.status(401).json({ message: "Unauthorized Request !!", success: false });
     }
     try {
 
-        const decodeToken = await jwt.verify(incomingRefreshToken, process.env.REFRESH_TOKEN_SECRET);
+        const decodeToken = await jwt.verify(RefreshToken, process.env.REFRESH_TOKEN_SECRET);
 
         const findUserData = await User.findById(decodeToken._id).select("-password");
 
@@ -140,7 +140,7 @@ export const refreshToken = async (req, res) => {
             return res.status(403).json({ message: "invalid refresh token !! ", success: false });
         }
 
-        if (incomingRefreshToken !== findUserData?.refreshToken) {
+        if (RefreshToken !== findUserData?.refreshToken) {
             return res.status(401).json({ message: "Refresh token is expired !!", success: false });
         }
 
