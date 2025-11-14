@@ -63,6 +63,7 @@ export const AuthProvider = ({ children }) => {
   };
   const removerToken = () => {
     localStorage.removeItem("isLogin");
+    location.reload();
     setToekn(false);
   };
 
