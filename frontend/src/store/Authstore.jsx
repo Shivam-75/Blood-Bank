@@ -85,7 +85,7 @@ export const AuthProvider = ({ children }) => {
       if (response.ok) {
         console.log("User login data:", data);
         return;
-      } else if (data.err == "jwt expired") {
+      } else if (data.message == "UnAuthorize Access jwt expired") {
         console.log("JWT expired, trying refresh...", data);
 
         const res = await RefreshToken();
