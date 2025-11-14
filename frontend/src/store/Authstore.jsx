@@ -55,7 +55,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.getItem("isLogin") === "true"
   );
 
-  const isLogin = !!loginToken;
+  const isLogin = loginToken;
 
   const setTokenLocalStorage = async (token = true) => {
     localStorage.setItem("isLogin", token ? "true" : "false");
