@@ -83,7 +83,7 @@ export const AuthProvider = ({ children }) => {
       const data = await response.json();
 
       if (response.ok) {
-        console.log("User login data:", data);
+        //console.log("User login data:", data);
         return;
       } else if (data.message == "UnAuthorize Access jwt expired") {
         console.log("JWT expired, trying refresh...");
@@ -96,7 +96,7 @@ export const AuthProvider = ({ children }) => {
           setTokenLocalStorage(true);
           userDataFached();
         } else {
-          console.log("Refresh failed:", refreshData);
+          //console.log("Refresh failed:", refreshData);
           removerToken();
         }
       } else {
