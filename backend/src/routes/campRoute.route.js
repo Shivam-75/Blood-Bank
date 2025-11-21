@@ -5,4 +5,4 @@ import { AddcampController, GetCampDetails } from "../controller/campController.
 
 export const CampRoutes = Router();
 
-CampRoutes.route("/CampDetails").post(AuthSecurity, AddcampController).get(AuthSecurity, GetCampDetails)
+CampRoutes.route("/CampDetails").post(AuthSecurity, AddcampController).get(GetCampDetails)
