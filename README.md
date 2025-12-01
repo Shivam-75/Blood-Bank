@@ -1,7 +1,12 @@
 # Blood Bank Project
 
+
+```sh
+git clone :https://github.com/Shivam-75/Blood-Bank.git
+```
+
 ### DEMO:https://blood-bank-gk62.vercel.app/
-### git clone :https://github.com/Shivam-75/Blood-Bank.git
+
 ## This is My best Project based on Mern stack Backend & frontend are Included here
 
 #### Technology ,library & modules :-
